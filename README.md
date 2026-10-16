@@ -63,12 +63,16 @@ Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.x
 
 O port é feito para **uma versão específica** do executável. O código é recompilado a partir deste arquivo, então o que vale é o `default.xex` ser **idêntico**: confira o hash abaixo.
 
+> [!TIP]
+> Use o disco **norte-americano (NTSC-U)** cujo `default.xex` tenha o hash abaixo. Disco europeu (PAL) ou japonês não serve.
+
 | Campo | Valor |
 |---|---|
 | Jogo | Naruto Shippuden: Ultimate Ninja Storm 3 Full Burst (Xbox 360) |
 | Title ID | `4E4D085C` |
 | Media ID | `2576927D` |
 | Versão do executável | `0.0.0.9` |
+| Trava de região do executável | somente NTSC-U (América do Norte) |
 
 | Arquivo | Tamanho | SHA-1 | MD5 |
 |---|---|---|---|
