@@ -1,0 +1,8 @@
+*.apk
+*.exe
+*.dll
+*.so
+*.xex
+*.zip
+private/
+ppc/
