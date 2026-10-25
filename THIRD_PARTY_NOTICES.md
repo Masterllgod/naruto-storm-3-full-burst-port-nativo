@@ -2,6 +2,8 @@
 
 Este app usa os componentes de código aberto abaixo. O mesmo texto está dentro do app, no link **"Licenças"** do menu inicial.
 
+**shadowZeroRender (GPL-3.0):** o renderizador nativo (Direct3D do jogo direto em Vulkan, desde a v0.4.1) é baseado no [reNut](https://github.com/masterspike52/reNut) e nos ports que o levaram adiante (masseffect-nx, nfsmw-nx, banjo-nx, sa2-nx). Esses projetos são GPL-3.0; as atribuições estão no texto abaixo.
+
 **FFmpeg (LGPL 2.1+):** o FFmpeg fica numa biblioteca separada (`lib/arm64-v8a/libffmpeg.so` dentro do APK e `libffmpeg.dll` no pacote de PC) e pode ser substituído. O código-fonte usado é o fork do projeto Xenia: [has207/FFmpeg @ `d980192`](https://github.com/has207/FFmpeg/tree/d980192e175e6ff95bcd287af77e16fcb6597974), com a configuração de [xenia-canary/third_party/ffmpeg-xenia](https://github.com/xenia-canary/xenia-canary/tree/canary_experimental/third_party).
 
 **libadrenotools (BSD-2):** usada só no Android, para carregar drivers de GPU customizados (Turnip) em aparelhos Snapdragon: [bylaws/libadrenotools](https://github.com/bylaws/libadrenotools).
@@ -14,6 +16,14 @@ O FFmpeg fica numa biblioteca separada (lib/arm64-v8a/libffmpeg.so dentro do APK
 trocado por outra versão compilada a partir do código-fonte do FFmpeg (https://ffmpeg.org),
 usado aqui na versão adaptada pelo projeto Xenia (https://github.com/xenia-canary/FFmpeg).
 O texto da licença está no fim deste arquivo.
+
+shadowZeroRender (renderizador nativo Direct3D -> Vulkan) - GNU General Public License 3.0.
+Baseado no reNut (https://github.com/masterspike52/reNut) e nos ports que o levaram adiante:
+masseffect-nx (NebadasSwifty, https://github.com/nebadasSwifty/masseffect-nx), nfsmw-nx (StevensND,
+https://github.com/StevensND/nfsmw-nx), NFSMW Recompiled (madelrandel-blip,
+https://github.com/madelrandel-blip/NFSMW-Recompiled), banjo-nx e sa2-nx, todos GPL-3.0.
+Usa também o plume (MIT), o XenosRecomp (hedge-dev, MIT) e partes do ReXGlue SDK (Tom Clay, BSD-3-Clause,
+com partes do Xenia). Texto da GPL-3.0: https://www.gnu.org/licenses/gpl-3.0.html
 
 ============================================================
 Xenia (Xenia Canary)

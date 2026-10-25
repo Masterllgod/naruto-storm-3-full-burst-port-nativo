@@ -9,10 +9,10 @@
 ![Android](https://img.shields.io/badge/Android-11%2B-3DDC84?logo=android&logoColor=white)
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)
 ![Arquitetura](https://img.shields.io/badge/arm64--v8a-64%20bits-orange)
-![Gráficos](https://img.shields.io/badge/Vulkan-1.1-AC162C?logo=vulkan&logoColor=white)
-![Versão](https://img.shields.io/badge/vers%C3%A3o-0.3-blue)
+![Gráficos](https://img.shields.io/badge/Vulkan-shadowZero-AC162C?logo=vulkan&logoColor=white)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-0.4.1-blue)
 
-[**⬇️ Baixar (Android e PC)**](../../releases/latest) · [Requisitos](#-requisitos) · [Instalação](#-instalação) · [Configurações](#%EF%B8%8F-configurações) · [Perguntas](#-perguntas-frequentes)
+[**⬇️ Baixar (Android e PC)**](../../releases) · [Requisitos](#-requisitos) · [Instalação](#-instalação) · [Configurações](#%EF%B8%8F-configurações) · [Perguntas](#-perguntas-frequentes)
 
 <img src="docs/screenshots/menu-pc.jpg" alt="Menu inicial" width="90%">
 
@@ -22,7 +22,7 @@
 
 ## 📖 Sobre
 
-Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.xex`) foi **recompilado estaticamente** de PowerPC para ARM64 (celular) e x86-64 (PC): o resultado é código nativo, que roda direto no processador. A parte gráfica usa um backend Vulkan adaptado e otimizado para GPUs de celular (Mali e Adreno), com um **render nativo** que faz as cópias e limpezas da memória de vídeo do Xbox 360 direto na GPU.
+Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.xex`) foi **recompilado estaticamente** de PowerPC para ARM64 (celular) e x86-64 (PC): o resultado é código nativo, que roda direto no processador. Desde a v0.4.1 a parte gráfica usa o **shadowZero**, um renderizador nativo que pega os comandos Direct3D do jogo e desenha direto em Vulkan, sem emular a GPU do Xbox 360. Isso deixa o jogo bem mais leve e permite escolher a resolução interna de **360p até 4K**. Em celulares cuja GPU não tem o que o shadowZero precisa, o app usa sozinho o backend Vulkan do Xenia, como nas versões anteriores.
 
 > [!IMPORTANT]
 > **O APK e o pacote de PC não contêm nenhum arquivo do jogo.** Você precisa da sua **própria cópia** de *Naruto Shippuden: Ultimate Ninja Storm 3 Full Burst* para Xbox 360, na versão indicada em [Versão do jogo](#-versão-do-jogo-obrigatória).
@@ -30,12 +30,13 @@ Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.x
 ### ✨ Destaques
 
 - **Lutas a 30 FPS** (o limite do próprio jogo), com o conteúdo do **Full Burst** carregado.
-- **⚡ Modo desempenho:** 24 FPS estáveis e com ritmo uniforme, mais leve, para celulares que não seguram 30. Fica em destaque no topo do menu, e a lógica do jogo acompanha o relógio (sem câmera lenta).
-- **Resoluções no celular:** 360p, 540p, 720p e 1080p (nítido). No PC também há 2K e 4K.
+- **Renderizador nativo shadowZero** (Direct3D → Vulkan), com resolução interna de **360p, 480p, 720p, 1080p, 2K e 4K** (padrão 480p). Roda em Mali, Adreno (inclusive Adreno 610) e com drivers Turnip.
+- **FPS escolhido no menu:** 20, 24 ou 30 (o limite do jogo), com a lógica do jogo no tempo certo (sem câmera lenta).
+- **⚡ Modo desempenho:** 480p no máximo, sem sombras e sem suavização.
 - **Antisserrilhado FXAA e FXAA+** e **escala FSR 1.0 / CAS** da AMD, que podem ser ligados e desligados.
-- **Controles na tela com o tema do Jiraiya** 🐸: cada botão é um selo de pergaminho com aro vermelho e as marcas do selo, que giram e brilham com o chakra verde do Monte Myoboku ao apertar.
-- **Pensados para as lutas do Storm:** soco, pulo, ferramentas ninja, chakra, defesa, substituição e os dois suportes, mais **atalhos de um toque** para jutsu (術), jutsu secreto (奥) e corrida de chakra.
-- **🎛️ Editor de controles** (botão ⚙): mova, aumente, diminua ou esconda cada botão, ajuste a transparência e escolha a **área da tela onde o analógico funciona**.
+- **Controles na tela no estilo dos jogos de Naruto para celular:** losango Y/X/B/A igual ao do controle, selos coloridos com a letra de cada botão, LT/RT/LB/RB, START e SELECT escritos e o botão **DESPERTAR** (segura Y).
+- **Controle físico automático:** plugou um controle, os botões da tela somem; tirou, eles voltam. Pelo emblema do Shadow no canto da tela dá para **editar os botões** ou usar **toque + controle** juntos.
+- **Menu com a abertura do próprio jogo** tocando (sem som) na coluna da esquerda, letras maiores e **Save 100% ligado de fábrica**.
 - **Drivers de GPU customizados (Turnip)** em celulares **Snapdragon**, importados direto pelo menu.
 - **Áudio sem picotes** nas quedas, jutsus e suportes.
 - **Painel de desempenho:** FPS, resolução e uso de CPU, GPU e RAM. Pode ser arrastado pela tela ou recolhido.
@@ -140,14 +141,15 @@ As configurações, os saves e o cache de shaders ficam na pasta onde você extr
 
 | Opção | O que faz | Impacto no desempenho |
 |---|---|---|
-| **Resolução 360p / 540p** | Renderiza com menos pixels | 🟢 Mais FPS: ideal para celulares mais fracos |
-| **Resolução 720p** | Resolução original do Xbox 360 | ⚪ Padrão |
+| **Resolução 360p / 480p** | Renderiza com menos pixels (480p é o padrão) | 🟢 Mais FPS: ideal para celulares mais fracos |
+| **Resolução 720p** | Resolução original do Xbox 360 | ⚪ Médio |
 | **Resolução 1080p** | Imagem mais nítida na tela do celular | 🟠 Pesa um pouco a mais |
-| **Resolução 2K / 4K** (PC) | Renderiza com 4x a 9x mais pixels | 🔴 Bem mais pesado |
+| **Resolução 2K / 4K** | Renderiza com 4x a 9x mais pixels | 🔴 Bem mais pesado |
+| **FPS: 20 / 24 / 30** | Limite de quadros por segundo (30 é o do jogo) | 🟢 20 e 24 deixam o aparelho mais folgado |
 | **Tela: 16:9 / Esticar** | Mantém a proporção original ou estica para a tela toda | ⚪ Nenhum |
 | **Antisserrilhado: FXAA / FXAA+** | Suaviza as bordas serrilhadas | 🟠 Pesa um pouco a mais |
 | **Escala na tela: FSR / CAS** | Amplia a imagem com mais nitidez (AMD FidelityFX) | 🟠 Pesa um pouco a mais |
-| **⚡ Modo desempenho** (Android) | 24 FPS estáveis, até 540p, sem antisserrilhado e com escala simples | 🟢 Bem mais leve |
+| **⚡ Modo desempenho** | Até 480p, sem sombras e sem antisserrilhado | 🟢 Bem mais leve |
 | **Painel de FPS** | Mostra FPS, resolução, CPU, GPU e RAM | ⚪ Quase nenhum |
 | **Driver da GPU** (só Snapdragon) | Usa o driver do sistema ou um driver **Turnip** importado (`.zip` no formato AdrenoTools) | Depende do aparelho e do driver |
 
@@ -157,26 +159,23 @@ As configurações, os saves e o cache de shaders ficam na pasta onde você extr
 ## 🎮 Controles
 
 - **Andar:** encoste o dedo na área do analógico (por padrão, a **metade esquerda** da tela). O analógico aparece ali e segue o dedo.
-- **Botões** (com a letra do controle num selinho, porque as dicas do jogo falam "aperte B"):
+- **Botões:** losango igual ao do controle (Y em cima, X à esquerda, B à direita, A embaixo), cada um com um selo colorido da letra (A verde, B vermelho, X azul, Y amarelo), porque as dicas do jogo falam "aperte B".
 
-| Ícone | Botão | Na luta |
-|---|---|---|
-| 👊 Punho (o maior) | B | Ataque |
-| 🦘 Pulo | A | Pular |
-| ✴️ Shuriken | X | Ferramentas ninja |
-| 🌀 Espiral | Y | Chakra |
-| 🛡️ Escudo (hexágono) | RT | Defesa |
-| 🪵 Tronco (hexágono) | LT | Substituição |
-| 👥 Suportes | LB / RB | Chamar os suportes |
-| 術 (atalho) | Y, B | Jutsu |
-| 奥 (atalho) | Y, Y, B | Jutsu secreto |
-| 🏃 (atalho) | Y, A | Corrida de chakra |
-| Direcional | ↑ ↓ ← → | Itens |
-| ☰ / ⏸️ | BACK / START | Menu / pausa |
+| Botão | Na luta |
+|---|---|
+| B (o maior) | Ataque |
+| A | Pular |
+| X | Ferramentas ninja |
+| Y | Chakra |
+| RT | Defesa |
+| LT | Substituição |
+| LB / RB | Chamar os suportes |
+| DESPERTAR (覚) | Segura Y (despertar) |
+| Direcional ↑ ↓ ← → | Itens |
+| SELECT / START | Menu / pausa |
 
-- **⚙ Editor de controles:** toque na engrenagem no topo. Arraste os botões, toque num deles para mudar o tamanho ou escondê-lo, ajuste a transparência e arraste os cantos do retângulo para mudar a área do analógico. **Restaurar padrão** volta tudo ao original.
-- O botão do **olho** esconde os controles e o **⇔** alterna entre 16:9 e tela esticada.
-- **Controle físico:** controles Bluetooth e USB compatíveis com Android são reconhecidos automaticamente.
+- **Emblema do Shadow** (canto da tela): toque para abrir **Editar botões** (arraste e mude o tamanho de cada botão) ou ligar **Toque + controle**.
+- **Controle físico:** controles Bluetooth e USB compatíveis com Android são reconhecidos automaticamente e os botões da tela somem enquanto ele estiver ligado.
 
 ### 🖥️ PC
 
@@ -249,6 +248,7 @@ Este projeto só foi possível graças a estes projetos de código aberto:
 - [**FFmpeg**](https://ffmpeg.org): decodificação de áudio XMA
 - [**AMD FidelityFX FSR / CAS**](https://github.com/GPUOpen-Effects): escala e nitidez
 - [**libadrenotools**](https://github.com/bylaws/libadrenotools): drivers de GPU customizados no Android
+- [**reNut**](https://github.com/masterspike52/reNut) e os ports [masseffect-nx](https://github.com/nebadasSwifty/masseffect-nx), [nfsmw-nx](https://github.com/StevensND/nfsmw-nx), banjo-nx e sa2-nx: base do renderizador nativo shadowZero
 
 As licenças completas estão em [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) e também dentro do app, no link **"Licenças"** do menu.
 
