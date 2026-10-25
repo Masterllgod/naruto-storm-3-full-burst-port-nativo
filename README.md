@@ -10,7 +10,7 @@
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)
 ![Arquitetura](https://img.shields.io/badge/arm64--v8a-64%20bits-orange)
 ![Gráficos](https://img.shields.io/badge/Vulkan-shadowZero-AC162C?logo=vulkan&logoColor=white)
-![Versão](https://img.shields.io/badge/vers%C3%A3o-0.4.1-blue)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-0.4.5-blue)
 
 [**⬇️ Baixar (Android e PC)**](../../releases) · [Requisitos](#-requisitos) · [Instalação](#-instalação) · [Configurações](#%EF%B8%8F-configurações) · [Perguntas](#-perguntas-frequentes)
 
@@ -34,7 +34,7 @@ Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.x
 - **FPS escolhido no menu:** 20, 24 ou 30 (o limite do jogo), com a lógica do jogo no tempo certo (sem câmera lenta).
 - **⚡ Modo desempenho:** 480p no máximo, sem sombras e sem suavização.
 - **Antisserrilhado FXAA e FXAA+** e **escala FSR 1.0 / CAS** da AMD, que podem ser ligados e desligados.
-- **Controles na tela no estilo dos jogos de Naruto para celular:** losango Y/X/B/A igual ao do controle, selos coloridos com a letra de cada botão, LT/RT/LB/RB, START e SELECT escritos e o botão **DESPERTAR** (segura Y).
+- **Controles na tela no estilo dos jogos de Naruto para celular:** losango Y/X/B/A igual ao do controle, selos coloridos com a letra de cada botão, LT/RT/LB/RB, START e SELECT escritos, o botão **DESPERTAR** (analógico direito para o lado) e os atalhos de **jutsu**, **jutsu secreto** e **avanço**.
 - **Controle físico automático:** plugou um controle, os botões da tela somem; tirou, eles voltam. Pelo emblema do Shadow no canto da tela dá para **editar os botões** ou usar **toque + controle** juntos.
 - **Menu com a abertura do próprio jogo** tocando (sem som) na coluna da esquerda, letras maiores e **Save 100% ligado de fábrica**.
 - **Drivers de GPU customizados (Turnip)** em celulares **Snapdragon**, importados direto pelo menu.
@@ -150,6 +150,7 @@ As configurações, os saves e o cache de shaders ficam na pasta onde você extr
 | **Antisserrilhado: FXAA / FXAA+** | Suaviza as bordas serrilhadas | 🟠 Pesa um pouco a mais |
 | **Escala na tela: FSR / CAS** | Amplia a imagem com mais nitidez (AMD FidelityFX) | 🟠 Pesa um pouco a mais |
 | **⚡ Modo desempenho** | Até 480p, sem sombras e sem antisserrilhado | 🟢 Bem mais leve |
+| **Brilho: Normal / +1 / +2** | Clareia os tons médios sem estourar o branco nem o preto | ⚪ Nenhum |
 | **Painel de FPS** | Mostra FPS, resolução, CPU, GPU e RAM | ⚪ Quase nenhum |
 | **Driver da GPU** (só Snapdragon) | Usa o driver do sistema ou um driver **Turnip** importado (`.zip` no formato AdrenoTools) | Depende do aparelho e do driver |
 
@@ -170,11 +171,12 @@ As configurações, os saves e o cache de shaders ficam na pasta onde você extr
 | RT | Defesa |
 | LT | Substituição |
 | LB / RB | Chamar os suportes |
-| DESPERTAR (覚) | Segura Y (despertar) |
+| DESPERTAR (覚) | Analógico direito para o lado (despertar) |
+| JUTSU / OUGI / AVANÇO (atalhos) | Y B / Y Y B / Y A |
 | Direcional ↑ ↓ ← → | Itens |
 | SELECT / START | Menu / pausa |
 
-- **Emblema do Shadow** (canto da tela): toque para abrir **Editar botões** (arraste e mude o tamanho de cada botão) ou ligar **Toque + controle**.
+- **Emblema do Shadow** (canto da tela): toque para abrir **Editar botões** (arraste os botões; "Tamanho" sem botão escolhido muda todos de uma vez, com um botão escolhido muda só ele) ou ligar **Toque + controle**.
 - **Controle físico:** controles Bluetooth e USB compatíveis com Android são reconhecidos automaticamente e os botões da tela somem enquanto ele estiver ligado.
 
 ### 🖥️ PC
