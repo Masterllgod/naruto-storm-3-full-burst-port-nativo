@@ -10,7 +10,7 @@
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)
 ![Arquitetura](https://img.shields.io/badge/arm64--v8a-64%20bits-orange)
 ![Gráficos](https://img.shields.io/badge/Vulkan-shadowZero-AC162C?logo=vulkan&logoColor=white)
-![Versão](https://img.shields.io/badge/vers%C3%A3o-0.4.5-blue)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-0.4.7-blue)
 
 [**⬇️ Baixar (Android e PC)**](../../releases) · [Requisitos](#-requisitos) · [Instalação](#-instalação) · [Configurações](#%EF%B8%8F-configurações) · [Perguntas](#-perguntas-frequentes)
 
@@ -37,6 +37,7 @@ Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.x
 - **Controles na tela no estilo dos jogos de Naruto para celular:** losango Y/X/B/A igual ao do controle, selos coloridos com a letra de cada botão, LT/RT/LB/RB, START e SELECT escritos, o botão **DESPERTAR** (analógico direito para o lado) e os atalhos de **jutsu**, **jutsu secreto** e **avanço**.
 - **Controle físico automático:** plugou um controle, os botões da tela somem; tirou, eles voltam. Pelo emblema do Shadow no canto da tela dá para **editar os botões** ou usar **toque + controle** juntos.
 - **Menu com a abertura do próprio jogo** tocando (sem som) na coluna da esquerda, letras maiores e **Save 100% ligado de fábrica**.
+- **Atualização automática:** ao abrir o menu, o app avisa quando sai versão nova aqui no GitHub e já baixa e instala.
 - **Drivers de GPU customizados (Turnip)** em celulares **Snapdragon**, importados direto pelo menu.
 - **Áudio sem picotes** nas quedas, jutsus e suportes.
 - **Painel de desempenho:** FPS, resolução e uso de CPU, GPU e RAM. Pode ser arrastado pela tela ou recolhido.
