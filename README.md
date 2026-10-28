@@ -10,7 +10,7 @@
 ![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078D6?logo=windows&logoColor=white)
 ![Arquitetura](https://img.shields.io/badge/arm64--v8a-64%20bits-orange)
 ![Gráficos](https://img.shields.io/badge/Vulkan-shadowZero-AC162C?logo=vulkan&logoColor=white)
-![Versão](https://img.shields.io/badge/vers%C3%A3o-0.4.7-blue)
+![Versão](https://img.shields.io/badge/vers%C3%A3o-0.5.0-blue)
 
 [**⬇️ Baixar (Android e PC)**](../../releases) · [Requisitos](#-requisitos) · [Instalação](#-instalação) · [Configurações](#%EF%B8%8F-configurações) · [Perguntas](#-perguntas-frequentes)
 
@@ -30,9 +30,11 @@ Este port **não é um emulador de Xbox 360**. O executável do jogo (`default.x
 ### ✨ Destaques
 
 - **Lutas a 30 FPS** (o limite do próprio jogo), com o conteúdo do **Full Burst** carregado.
-- **Renderizador nativo shadowZero** (Direct3D → Vulkan), com resolução interna de **360p, 480p, 720p, 1080p, 2K e 4K** (padrão 480p). Roda em Mali, Adreno (inclusive Adreno 610) e com drivers Turnip.
+- **Renderizador nativo shadowZero** (Direct3D → Vulkan), com resolução interna de **360p, 480p, 720p, 900p, 1080p, 2K e 4K** (padrão 480p). Roda em Mali, Adreno (inclusive Adreno 610) e com drivers Turnip.
 - **FPS escolhido no menu:** 20, 24 ou 30 (o limite do jogo), com a lógica do jogo no tempo certo (sem câmera lenta).
-- **⚡ Modo desempenho:** 480p no máximo, sem sombras e sem suavização.
+- **⚡ Modo desempenho:** tira as sombras **em qualquer resolução** (não trava mais em 480p).
+- **Brilho e cores iguais aos do Xbox 360:** o bloom e a exposição da luta não estouram mais.
+- **GPU bem mais leve em resolução alta:** num POCO F3 (Adreno 650) a luta a 1080p foi de 18 para 30 FPS, e a nova **900p** roda a 30 FPS com folga.
 - **Antisserrilhado FXAA e FXAA+** e **escala FSR 1.0 / CAS** da AMD, que podem ser ligados e desligados.
 - **Controles na tela no estilo dos jogos de Naruto para celular:** losango Y/X/B/A igual ao do controle, selos coloridos com a letra de cada botão, LT/RT/LB/RB, START e SELECT escritos, o botão **DESPERTAR** (analógico direito para o lado) e os atalhos de **jutsu**, **jutsu secreto** e **avanço**.
 - **Controle físico automático:** plugou um controle, os botões da tela somem; tirou, eles voltam. Pelo emblema do Shadow no canto da tela dá para **editar os botões** ou usar **toque + controle** juntos.
@@ -144,13 +146,14 @@ As configurações, os saves e o cache de shaders ficam na pasta onde você extr
 |---|---|---|
 | **Resolução 360p / 480p** | Renderiza com menos pixels (480p é o padrão) | 🟢 Mais FPS: ideal para celulares mais fracos |
 | **Resolução 720p** | Resolução original do Xbox 360 | ⚪ Médio |
+| **Resolução 900p** | Quase a nitidez do 1080p com bem menos pixels (1600x900) | 🟡 Ponto de equilíbrio para celulares fortes |
 | **Resolução 1080p** | Imagem mais nítida na tela do celular | 🟠 Pesa um pouco a mais |
 | **Resolução 2K / 4K** | Renderiza com 4x a 9x mais pixels | 🔴 Bem mais pesado |
 | **FPS: 20 / 24 / 30** | Limite de quadros por segundo (30 é o do jogo) | 🟢 20 e 24 deixam o aparelho mais folgado |
 | **Tela: 16:9 / Esticar** | Mantém a proporção original ou estica para a tela toda | ⚪ Nenhum |
 | **Antisserrilhado: FXAA / FXAA+** | Suaviza as bordas serrilhadas | 🟠 Pesa um pouco a mais |
 | **Escala na tela: FSR / CAS** | Amplia a imagem com mais nitidez (AMD FidelityFX) | 🟠 Pesa um pouco a mais |
-| **⚡ Modo desempenho** | Até 480p, sem sombras e sem antisserrilhado | 🟢 Bem mais leve |
+| **⚡ Modo desempenho** | Sem sombras e sem antisserrilhado, na resolução que você escolher | 🟢 Mais leve |
 | **Brilho: Normal / +1 / +2** | Clareia os tons médios sem estourar o branco nem o preto | ⚪ Nenhum |
 | **Painel de FPS** | Mostra FPS, resolução, CPU, GPU e RAM | ⚪ Quase nenhum |
 | **Driver da GPU** (só Snapdragon) | Usa o driver do sistema ou um driver **Turnip** importado (`.zip` no formato AdrenoTools) | Depende do aparelho e do driver |
